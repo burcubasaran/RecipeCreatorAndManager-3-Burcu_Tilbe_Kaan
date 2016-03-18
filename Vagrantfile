@@ -1,10 +1,8 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
-
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
+# Automatically install plugin, taken from https://stackoverflow.com/questions/19492738/demand-a-vagrant-plugin-within-the-vagrantfile/36065867
+required_plugins = %w( vagrant-exec )
+required_plugins.each do |plugin|
+  system "vagrant plugin install #{plugin}" unless Vagrant.has_plugin? plugin
+end
 Vagrant.configure(2) do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
@@ -65,4 +63,6 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision :shell, path: "bootstrap.sh"
+
+  config.exec.commands 'run', prepend: 'bash'
 end
