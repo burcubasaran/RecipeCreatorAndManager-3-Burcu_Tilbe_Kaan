@@ -1,8 +1,6 @@
-#!/bin/bash
-
-cd /vagrant
-mkdir -p build
-cd build
-cmake ..
-make
-./Recipe-Manager -c ../config.json
+cd /vagrant #
+mkdir -p build #
+cd build #
+cmake .. #
+make #
+./Recipe-Manager -c ../config.json #
