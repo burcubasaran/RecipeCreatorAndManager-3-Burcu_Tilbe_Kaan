@@ -33,11 +33,11 @@ cd
 #
 # Build and install sqlite_modern_cpp
 #
-MSQLITE_VER='2.1'
+MSQLITE_VER='2.2'
 MSQLITE_NAME="sqlite_modern_cpp-$MSQLITE_VER"
-MSQLITE_SHA512SUM="6cb0d788d352c8151fccff32af58fb2a76fbb115c520ece3c26fe65613370e0dffe675985ac7ca48a900361f2c6e94140ae6839df2780df307e2de94dd995464  $MSQLITE_NAME.tar.gz"
+MSQLITE_SHA512SUM="45581530063367589d3fd43586a4e277ea21fb5991d699e50a609dfd65a19233faddeb5d983f4378c88f374f1d45a7c2f843624a61738e2f24e979fc6301e58d  $MSQLITE_NAME.tar.gz"
 
-wget "https://github.com/aminroosta/sqlite_modern_cpp/archive/2.1.tar.gz" \
+wget "https://github.com/aminroosta/sqlite_modern_cpp/archive/v$MSQLITE_VER.tar.gz" \
      -O "$MSQLITE_NAME.tar.gz" --progress=dot:mega
 echo $MSQLITE_SHA512SUM | sha512sum -c - ; [[ $? != 0 ]] && exit 1
 tar -xf "$MSQLITE_NAME.tar.gz"
