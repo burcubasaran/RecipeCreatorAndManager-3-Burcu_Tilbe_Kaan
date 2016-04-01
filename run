@@ -1,6 +1,13 @@
+set -e #
 cd /vagrant #
 mkdir -p build #
 cd build #
+echo -e "\n\n--------------------[ Building the project ]--------------------" #
 cmake .. #
 make #
-./Recipe-Manager -c ../config.json #
+echo -e "\n\n-----------------------[ Build complete ]-----------------------" #
+sudo make install #
+cd .. #
+echo -e "\n\n---------------------[ Running the project ]---------------------" #
+echo -e "\tVisit http://localhost:8080/hello/english.\n" #
+Recipe-Manager -c config.json #

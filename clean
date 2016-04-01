@@ -1,0 +1,4 @@
+set -e #
+cd /vagrant #
+echo -e "\n---------------------[ Cleaning the build ]---------------------\n" #
+rm -rf build #
