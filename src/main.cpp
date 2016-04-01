@@ -3,11 +3,9 @@
 #include <cppcms/service.h>
 #include <cppcms/http_response.h>
 #include <iostream>
-#include <sqlite_modern_cpp.h>
 #include <string>
+#include "database.hpp"
 
-
-sqlite::database *db;
 
 
 class hello : public cppcms::application {
@@ -26,6 +24,7 @@ void hello::main(std::string url) {
                 "<h1>"
                 "\n";
         try {
+                database* db = Database::connection();
                 *db << "SELECT greeting FROM greetings WHERE language LIKE ?" << url_param >> greeting;
                 response().out() << greeting;
         } catch(std::exception const &e) {
@@ -39,7 +38,7 @@ void hello::main(std::string url) {
 }
 
 int main(int argc,char ** argv) {
-        db = new sqlite::database(":memory:");
+        database* db = Database::connection();
         try {
                 *db << "CREATE TABLE IF NOT EXISTS greetings(language TEXT PRIMARY KEY NOT NULL, greeting TEXT NOT NULL);";
         } catch(std::exception const &e) {

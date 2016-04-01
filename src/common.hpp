@@ -11,4 +11,6 @@ using std::string;
 #include <vector>
 using std::vector;
 
+#include <stdexcept>
+
 #endif // RECIPEMANAGER_COMMON_H
