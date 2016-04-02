@@ -3,7 +3,8 @@ cd /vagrant #
 mkdir -p build #
 cd build #
 echo -e "\n\n--------------------[ Building the project ]--------------------" #
-cmake .. #
+export CXX='/usr/bin/clang++' #
+cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON .. #
 make #
 echo -e "\n\n-----------------------[ Build complete ]-----------------------" #
 sudo make install #

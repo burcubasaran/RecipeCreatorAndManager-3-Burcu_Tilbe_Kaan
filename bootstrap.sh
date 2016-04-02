@@ -3,7 +3,7 @@
 
 # Get the development tools & deps
 apt-get update
-apt-get install -y build-essential cmake libpcre3-dev libgcrypt11-dev libicu-dev libsqlite3-dev sqlite3
+apt-get install -y build-essential clang cmake libpcre3-dev libgcrypt11-dev libicu-dev libsqlite3-dev sqlite3
 cd
 
 #
